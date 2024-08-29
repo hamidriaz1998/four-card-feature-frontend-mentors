@@ -121,6 +121,12 @@ main {
     .container {
         max-width: 1024px;
     }
+    .big-text {
+        font-size: 2rem;
+    }
+    .text > h2 {
+       font-size: 1.8rem;
+    }
     .paragraph {
         font-size: 1rem;
         width: 600px;
