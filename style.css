@@ -21,7 +21,6 @@ body {
 }
 p {
     font-size: 0.9375rem;
-    t-size: 15px;
     color: var(--grayish-blue);
     font-weight: 200;
 }
@@ -41,10 +40,10 @@ main {
     text-align: center;
 }
 .big-text {
-    font-size: 1.6rem;
+    font-size: clamp(1.3rem, 4vw, 1.6rem);
 }
 .text > h2 {
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 600;
     color: var(--very-dark-blue);
     margin-bottom: 1rem;
@@ -71,7 +70,9 @@ main {
     padding: 20px;
     margin: 10px;
     width: 100%;
-    height: 225px;
+    max-width: 350px;
+    min-height: 225px;
+    height: auto;
 }
 
 .card h3 {
@@ -101,4 +102,81 @@ main {
 
 .calculator {
     border-top: 4px solid var(--blue);
+}
+
+@media screen and (min-width: 320px) and (max-width: 374px) {
+    .container {
+        padding: 15px;
+    }
+    .big-text,
+    .text > h2 {
+        font-size: 1.3rem;
+    }
+    .card {
+        padding: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 1024px;
+    }
+    .paragraph {
+        font-size: 1rem;
+        width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1024px;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .card {
+        max-width: 450px;
+        width: 100%;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 0;
+    }
+
+    .supervisor {
+        grid-column: 1;
+        grid-row: 2 / 4;
+    }
+
+    .team-builder {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+
+    .calculator {
+        grid-column: 3;
+        grid-row: 2 / 4;
+    }
+
+    .karma {
+        grid-column: 2;
+        grid-row: 3 / 5;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1440px;
+        padding: 50px;
+    }
+    .cards {
+        gap: 30px;
+    }
+    .card {
+        margin: 10px;
+    }
 }
